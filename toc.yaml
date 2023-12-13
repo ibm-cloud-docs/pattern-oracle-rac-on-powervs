@@ -43,8 +43,6 @@ toc:
             navtitle: Security
           - topic: resiliency-considerations.md
             navtitle: Resiliency
-          - topic: observability-considerations.md
-            navtitle: Observability
       - topicgroup:
           label: Architecture decisions
           topics:
@@ -58,6 +56,8 @@ toc:
             navtitle: Security
           - topic: resiliency-decisions.md
             navtitle: Resiliency
+          - topic: observability-decisions.md
+            navtitle: Observability
 
   - navgroup:
       id: references
