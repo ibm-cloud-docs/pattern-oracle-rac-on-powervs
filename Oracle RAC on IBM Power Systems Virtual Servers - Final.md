@@ -1,57 +1,16 @@
-**Oracle RAC  
-on IBM Power Systems Virtual Servers**
+---
 
-**V1.0**
+copyright:
+  years: 2023
+lastupdated: "2023-11-28"
 
-Contents
+subcollection: pattern-oracle-rac-on-powervs
 
-[1 Pattern Overview](#pattern-overview)
+keywords:
 
-[2 Pattern Requirements](#pattern-requirements)
+---
 
-[3 Solution Architecture - Oracle RAC on IBM PowerVS](#solution-architecture---oracle-rac-on-ibm-powervs)
-
-[3.1 Solution Architecture](#solution-architecture)
-
-[3.2 Solution Components](#solution-components)
-
-[4 Compute](#compute)
-
-[4.1 Compute Considerations](#compute-considerations)
-
-[5 Storage](#storage)
-
-[5.1 Storage Considerations](#storage-considerations)
-
-[6 Network](#network)
-
-[6.1 Network Considerations](#network-considerations)
-
-[7 Security](#security)
-
-[7.1 Security Considerations](#security-considerations)
-
-[8 Resiliency](#resiliency)
-
-[8.1 Resiliency Considerations (Backup)](#resiliency-considerations-backup)
-
-[9 Observability](#observability)
-
-[9.1 Observability Considerations](#observability-considerations)
-
-[10 Architecture Decisions](#architecture-decisions)
-
-[10.1 Compute Architecture Decisions](#compute-architecture-decisions)
-
-[10.2 Storage Architecture Decisions](#storage-architecture-decisions)
-
-[10.3 Network Architecture Decisions](#network-architecture-decisions)
-
-[10.4 Security Architecture Decisions](#security-architecture-decisions)
-
-[10.5 Resiliency Architecture Decisions](#resiliency-architecture-decisions)
-
-[11 References](#references)
+{{site.data.keyword.attribute-definition-list}}
 
 # Pattern Overview
 
@@ -199,7 +158,7 @@ The Flexibility of IBM Power Systems Virtual Servers capability includes:
 
 • PowerVM Host CPU Binding (dedicated or shared)
 
-• Reserved Capacity via Shared Processor Pool Option  
+• Reserved Capacity via Shared Processor Pool Option
 Note: For details on capabilities, check [here](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-power-virtual-server)
 
 For Oracle RAC, it is recommended to provision at least 2 nodes in a single zone on two separate physical servers using placement group for High Availability of production workload. Deviation from this setup can cause latency. Databases typically experience growth over time so database size and expected data growth rates should be taken into consideration when planning database deployments although there is the capability to extend storage capacity/volume size extension or add new shared volumes to the database.
@@ -274,7 +233,7 @@ Database resiliency refers to the ability of a database system to continue funct
 
 Oracle Real Application Clusters (RAC) is a clustered version of Oracle Database, which provides high availability and scalability. Backup and restore operations for Oracle RAC are crucial to ensure data integrity and availability. Disaster Recovery for Oracle RAC involves strategies to ensure the availability and integrity of the database in the event of a failure, disaster, or other disruptions.
 
-![A screenshot of a computer Description automatically generated](be56ac77cfda7c1ada11870ada8c93dc.png)By understanding the unique capabilities of Oracle RAC, organizations with proper planning can plan for their data to be safe and recoverable. For Backup & Restore there’s a seamless integration with Oracle Recovery Manager (RMAN) to direct database backup and restore activity to IBM Cloud Object Storage. More information [here](https://www.ibm.com/downloads/cas/O0BZVBPN).  
+![A screenshot of a computer Description automatically generated](be56ac77cfda7c1ada11870ada8c93dc.png)By understanding the unique capabilities of Oracle RAC, organizations with proper planning can plan for their data to be safe and recoverable. For Backup & Restore there’s a seamless integration with Oracle Recovery Manager (RMAN) to direct database backup and restore activity to IBM Cloud Object Storage. More information [here](https://www.ibm.com/downloads/cas/O0BZVBPN).
 Recovery Manager (RMAN) is the native Oracle Database client that performs backup and recovery tasks for local and clustered databases and automates administration of configured backup strategies. RMAN has Oracle’s Secure Backup (OSB) cloud module with an SBT (Secure Backup) interface that enables the use of the S3 protocol for data backup to IBM Cloud Object Storage. OSB will need to be installed on both Oracle RAC nodes and may have licensing impacts.
 
 Backup considerations include deciding on how often a full database backup and an incremental backup is taken. A full backup captures the entire database, while an incremental backup captures only the changes since the last backup. For example, the customer may implement for example: a weekly full backup and daily incremental backup for Oracle DB. These requirements are strictly determined by the customer based on their business needs. For DB level, RMAN tool is recommended for backup
@@ -339,7 +298,7 @@ Here are some additional considerations:
 
 3.  Determine the need for a high availability (HA) solution for all non-production workloads such as Dev/Test/Non-Critical environments. Run at least one identical non-production/DR RAC environment to apply the patches and fixes to test before rolling out to production environments
 
-4.  Data centers with PowerVS systems are hosted in various regions globally  
+4.  Data centers with PowerVS systems are hosted in various regions globally
     Note: For up-to-date specifications, check [here](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-about-virtual-server)
 
 ## Storage Architecture Decisions
@@ -397,29 +356,29 @@ Note: Spectrum Protect is recommended. An alternative option, Veeam is supported
 
     <https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started>
 
--   Oracle RAC implementation on IBM Power Systems Virtual Server - Practical guide for deploying Oracle Real Application Cluster  
+-   Oracle RAC implementation on IBM Power Systems Virtual Server - Practical guide for deploying Oracle Real Application Cluster
     <https://www.ibm.com/support/pages/oracle-rac-implementation-ibm-power-systems-virtual-server>
 
 -   IBM Power Systems Virtual Server integration with x86-based workloads
 
     <https://cloud.ibm.com/media/docs/downloads/power-iaas-tutorials/PowerVS_and_x86_Integration_Tutorial_v1.pdf>
 
--   PowerVS network options  
+-   PowerVS network options
     <https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-network-architecture-diagrams>
 
--   PowerVS connecting to IBM VPC Public Cloud   
+-   PowerVS connecting to IBM VPC Public Cloud
     <https://www.ibm.com/blog/connecting-ibm-vpc-to-ibm-power-virtual-servers-and-ibm-cloud-object-storage/>
 
--   PowerVS Launch Page  
+-   PowerVS Launch Page
     <https://cloud.ibm.com/catalog/services/power-systems-virtual-server>
 
--   PowerVS Documentation  
+-   PowerVS Documentation
     <https://cloud.ibm.com/docs/power-iaas>
 
--   IBM Power Systems Community  
+-   IBM Power Systems Community
     <https://community.ibm.com/community/user/power/home>
 
--   IBM Redbook – Oracle on Power Systems  
+-   IBM Redbook – Oracle on Power Systems
     <https://www.redbooks.ibm.com/redbooks/pdfs/sg248485.pdf>
 
 Notices

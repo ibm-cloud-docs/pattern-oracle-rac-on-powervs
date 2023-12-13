@@ -4,7 +4,7 @@ copyright:
   years: 2023
 lastupdated: "2023-11-28"
 
-subcollection: <repo-name>
+subcollection: pattern-oracle-rac-on-powervs
 
 keywords:
 
@@ -15,17 +15,23 @@ keywords:
 # Requirements
 {: #requirements}
 
-The following represents a baseline set of requirements are applicable to most clients and critical to a successful `<Pattern Name>` deployment.
+The following represents a baseline set of requirements which are applicable to most clients and critical to successful Oracle RAC on PowerVS deployment.
 
-<!--example Requirements Table – update with requirements for pattern-->
-
-| Aspect | Requirements | 
-| -------------- | -------------- |
-| Compute | Provide properly isolated compute resources with adequate compute capacity for the applications. |
-| Storage | Provide storage that meets the application and database performance requirements. |
-| Networking | Deploy workloads in isolated environment and enforce information flow policies.  \n Provide secure, encrypted connectivity to the cloud’s private network for management purposes.  \n Distribute incoming application requests across available compute resources.  \n Provide public and private DNS resolution to support use of hostnames instead of IP addresses. |
-| Security | Ensure all operator actions are executed securely through a bastion host.  \n Protect the boundaries of the application against denial-of-service and application-layer attacks.  \n Encrypt all application data in transit and at rest to protect from unauthorized disclosure.  \n Encrypt all backup data to protect from unauthorized disclosure.  \n Encrypt all security data (operational and audit logs) to protect from unauthorized disclosure.  \n Encrypt all data using customer managed keys to meet regulatory compliance requirements for additional security and customer control.  \n Protect secrets through their entire lifecycle and secure them using access control measures. |
-| Resiliency | Support application availability targets and business continuity policies.  \n Provide highly available compute, storage, network, and other cloud services to handle application load and performance requirements.  \n Backup application data to enable recovery in the event of unplanned outages.  \n Provide highly available storage for security data (logs) and backup data.|
-| Service Management | Monitor system and application health metrics and logs to detect issues that might impact the availability of the application.  \n Generate alerts/notifications about issues that might impact the availability of applications to trigger appropriate responses to minimize down time.  \n Monitor audit logs to track changes and detect potential security problems.  \n Provide a mechanism to identify and send notifications about issues found in audit logs. |
-{: caption="Table 1. Pattern requirements" caption-side="bottom"}
-
+| **Aspects**                     | **Description of the requirement**                                                                                                                                                                                                     |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Compute Requirements**        | Provide different levels of cpu and memory options to match the type of workloads                                                                                                                                                      |
+| **Storage Requirements**        | Provide different storage Tier level for type of workloads                                                                                                                                                                             |
+| **Network Requirements**        | Enterprise connectivity to customer data center(s) to provide access to applications from on-prem                                                                                                                                      |
+|                                 | Provide network isolation with the ability to segregate applications based on attributes such as data classification, public vs internal apps and function                                                                             |
+|                                 | Maintain IP addresses in the target (BYOIP)                                                                                                                                                                                            |
+| **Security Requirements**       | Provide data encryption at rest                                                                                                                                                                                                        |
+|                                 | IDS/IAM Services to target IBM PowerVS environment                                                                                                                                                                                     |
+|                                 | Firewalls must be restrictively configured to provide advanced security features and prevent all traffic, both inbound and outbound, except that which is specifically required, documented, and approved and include IPS/IDS services |
+| **Resiliency Requirements**     | Multi-Region capability to support disaster recovery strategy and solution that allows all production applications to be included leveraging cloud infrastructure DR capabilities                                                      |
+|                                 | RTO/RPO = 4 hours/15 minutes; rollback to original environments should occur no later than specified RTOs                                                                                                                              |
+|                                 | Provide backup for Infrastructure components and Database hosted in the cloud environment.                                                                                                                                             |
+| **Observability Requirements**  | Provide Health and System Monitoring with ability to monitor and correlate performance metrics and events and provide alerting across applications and infrastructure                                                                  |
+|                                 | Ability to diagnose issues and exceptions and identify error source                                                                                                                                                                    |
+|                                 | Automate management processes to keep applications and infrastructure secure, up to date, and available                                                                                                                                |
+| **Other Requirements**          | Migrate workloads from existing data center to IBM PowerVS                                                                                                                                                                             |
+{: caption="Table 1. Oracle RAC on PowerVS Requirements" caption-side="bottom"}
