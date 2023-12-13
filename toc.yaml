@@ -4,16 +4,16 @@
 ---
 toc:
   properties:
-    subcollection: <repo-name>
-    industry: industry-value
-    use-case: use-case-value
-    compliance: compliance-value
+    subcollection: pattern-oracle-rac-on-powervs
+    #industry: industry-value
+    #use-case: use-case-value
+    #compliance: compliance-value
     audience: solution
     content-type: deployment
-    href: /docs/<repo-name>
-    path: <repo-name>
-    description: Pattern description
-    label: Pattern name
+    href: /docs/pattern-oracle-rac-on-powervs
+    path: pattern-oracle-rac-on-powervs
+    description: Oracle RAC PowerVS Architecture Pattern
+    label: Oracle RAC on Power Virtual Server
 
   entries:
   - navgroup:
@@ -37,8 +37,8 @@ toc:
             navtitle: Compute
           - topic: storage-considerations.md
             navtitle: Storage
-          - topic: networking-considerations.md
-            navtitle: Networking
+          - topic: network-considerations.md
+            navtitle: Network
           - topic: security-considerations.md
             navtitle: Security
           - topic: resiliency-considerations.md
@@ -52,14 +52,12 @@ toc:
             navtitle: Compute
           - topic: storage-decisions.md
             navtitle: Storage
-          - topic: networking-decisions.md
-            navtitle: Networking
+          - topic: network-decisions.md
+            navtitle: Network
           - topic: security-decisions.md
             navtitle: Security
           - topic: resiliency-decisions.md
             navtitle: Resiliency
-          - topic: service-management-decisions.md
-            navtitle: Service management
 
   - navgroup:
       id: references
