@@ -16,8 +16,8 @@ keywords:
 {: #compute-decisions}
 
 | **Architecture Decision**| **Requirements**| **Decision**| **Rationale**|
-|--------------------------|------------------------------------------------------------|----------------------------------------------------------------------|-----------------------------------------|
-| **Compute**  | Compute for Oracle RAC | Target environment to match specific workload requirements | [Power Systems Virtual Server](https://cloud.ibm.com/power/overview) | Hardware flexibility For production use |
+|--------------------------|----------------------------------------------|----------------------------------------------------------------------|-----------------------------------------|
+| Compute for Oracle RAC | Target environment to match specific workload requirements | [Power Systems Virtual Server](https://cloud.ibm.com/power/overview) | Hardware flexibility For production use |
 {: caption="Table 1. Compute Architecture Decisions" caption-side="bottom"}
 
 When creating the PowerVS LPARS (also referred as instances and VMs)
