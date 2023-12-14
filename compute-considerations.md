@@ -32,7 +32,7 @@ The Flexibility of IBM Power Systems Virtual Servers capability includes:
 • PowerVM Host CPU Binding (dedicated or shared)
 
 • Reserved Capacity via Shared Processor Pool Option
-Note: For details on capabilities, check [here](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-creating-power-virtual-server#creating-power-virtual-server)
+For details on reserved capacity, see [Shared Processor Pools](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-manage-SPP)
 
 For Oracle RAC, it is recommended to provision at least 2 nodes in a single zone on two separate physical servers using placement group for High Availability of production workload. Deviation from this setup can cause latency. Databases typically experience growth over time so database size and expected data growth rates should be taken into consideration when planning database deployments although there is the capability to extend storage capacity/volume size extension or add new shared volumes to the database.
 

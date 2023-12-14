@@ -17,7 +17,7 @@ keywords:
 
 A reference architecture for Oracle RAC, High Availability, in a single zone region, represents a particular solution, based on best practices and use-cases.
 
-The architecture below (section 4.1) lists a reference solution which has Power Virtual server environment and IBM Cloud VPC with the following components.
+The architecture below lists a reference solution which has Power Virtual server environment and IBM Cloud VPC with the following components.
 
 A Single Zone Region:
 
@@ -57,7 +57,7 @@ Solution Architecture Diagram
 
 Solution Components
 
-| **Aspects**       | **Solution Components**                                                                                                                    | **How it is used in solution**                                                                                    |
+| **Aspect**       | **Component**                                                                                                                    | **How it is used in solution**                                                                                    |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
 | **Compute**       | [PowerVS](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started)                                                          | Web, App, and database servers                                                                                    |
 | **Storage**       | [PowerVS Storage](https://cloud.ibm.com/docs/openshift?topic=openshift-vpc-block)                                                          | Database servers shared storage for RAC                                                                           |
