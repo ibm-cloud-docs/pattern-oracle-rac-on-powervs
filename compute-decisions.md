@@ -15,7 +15,7 @@ keywords:
 # Compute Architecture Decisions
 {: #compute-decisions}
 
-| **Architecture Decision**| **Requirements**| **Decision**| **Rationale**|
+| **Architecture Decision**        | **Requirements**| **Decision**| **Rationale**|
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------|-----------------------------------------|
 | Compute for Oracle RAC | Target environment to match specific workload requirements | [Power Systems Virtual Server](https://cloud.ibm.com/power/overview) | Hardware flexibility For production use |
 {: caption="Table 1. Compute Architecture Decisions" caption-side="bottom"}
