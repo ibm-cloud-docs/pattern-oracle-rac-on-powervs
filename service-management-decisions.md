@@ -12,8 +12,10 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Observability Architecture Decisions
+# Service management architecture decisions
 {: #observability-decisions}
+
+The following are service management architecture decisions for the Oracle RAC on Power Virtual Server resiliency pattern.
 
 Typically, observability tools are integrated with a centralized Service Management Ticketing System to provide a single pane of glass for all operations activities.
 

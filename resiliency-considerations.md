@@ -12,7 +12,7 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Resiliency Considerations
+# Resiliency considerations
 {: #resiliency-considerations}
 
 Database resiliency refers to the ability of a database system to continue functioning correctly and efficiently in the face of various challenges, such as hardware failures, software bugs, human errors, or malicious attacks. For Oracle Database, resiliency encompasses several key aspects:
@@ -29,7 +29,7 @@ Oracle Real Application Clusters (RAC) is a clustered version of Oracle Database
 for Oracle RMAN Backup](https://www.ibm.com/downloads/cas/O0BZVBPN).
 Recovery Manager (RMAN) is the native Oracle Database client that performs backup and recovery tasks for local and clustered databases and automates administration of configured backup strategies. RMAN has Oracle’s Secure Backup (OSB) cloud module with an SBT (Secure Backup) interface that enables the use of the S3 protocol for data backup to IBM Cloud Object Storage. OSB will need to be installed on both Oracle RAC nodes and may have licensing impacts.
 
-Backup considerations include deciding on how often a full database backup and an incremental backup is taken. A full backup captures the entire database, while an incremental backup captures only the changes since the last backup. For example, the customer may implement for example: a weekly full backup and daily incremental backup for Oracle DB. These requirements are strictly determined by the customer based on their business needs. For DB level, RMAN tool is recommended for backup
+Backup considerations include deciding on how often a full database backup and an incremental backup is taken. A full backup captures the entire database, while an incremental backup captures only the changes since the last backup. For example, the customer may implement a weekly full backup and daily incremental backup for Oracle DB. These requirements are strictly determined by the customer based on their business needs. For Database level, RMAN tool is recommended for backup.
 
 | **Oracle Database** |           |           |
 |---------------------|-----------|-----------|

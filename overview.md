@@ -12,7 +12,7 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Pattern Overview
+# Pattern overview
 {: #overview}
 
 Oracle RAC on IBM Power Systems Virtual Server (PowerVS) pattern allows customers to run a single Oracle Database across multiple servers/multiple virtual machines in a single zone, in order to maximize availability and enable horizontal scalability, while accessing shared storage. User sessions connecting to Oracle RAC instances can failover without any changes to end user applications.

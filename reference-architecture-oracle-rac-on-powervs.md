@@ -31,7 +31,8 @@ content-type: reference-architecture
 
 The reference architecture for Oracle RAC, High Availability, in a single zone region, represents a solution, based on best practices and use-cases.
 
-Architecture Diagram
+## Architecture diagram
+{: #architecture-diagram}
 
 ![A screenshot of a computer Description automatically generated](6967d9da31401f1b61fcb03e7f58039f.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
 
@@ -70,10 +71,10 @@ Below are the solution component details
 9.  Get visibility into the performance and health of your resources by configuring the [monitoring](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-monitor-sysdig#sysdig-view-ui) and [activity tracker](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-at-events), observability components
 
 
-## Design Scope
+## Design scope
 {: #design-scope}
 
-Following the Architecture Framework, the Oracle RAC on Power Virtual Server covers design considerations for the following aspects and domains:
+Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-taxonomy), the Oracle RAC on Power Virtual Server covers design considerations and architecture decisions for the following aspects and domains:
 
 -   **Compute:** Power Systems Virtual Servers
 
@@ -83,9 +84,9 @@ Following the Architecture Framework, the Oracle RAC on Power Virtual Server cov
 
 -   **Security:** Data Security, Application Security, Infrastructure Security
 
--   **Resiliency:** Backup and Restore, High Availability, Disaster Recovery
+-   **Resiliency:** Backup
 
--   **Observability:** Monitoring, Logging, Auditing
+-   **Service Management:** Monitoring, Logging, Alerting, Management/Orchestration
 
  ![Oracle RAC on Power Virtual Server Solution Design Scope](oracle-rac-on-powervs-heatmap.png){: caption="Figure 1. Oracle RAC on Power Virtual Server Architecture Design Scope" caption-side="bottom"}
 
@@ -132,7 +133,7 @@ The following represents a baseline set of requirements which are applicable to 
 |                   | [Cloud Internet Services (CIS)](https://cloud.ibm.com/docs/cis?topic=cis-getting-started)                                                  | Public Load balancing of web servers traffic across zones in the region                                           |
 |                   | [DNS Services](https://cloud.ibm.com/docs/dns-svcs?topic=dns-svcs-about-dns-services)                                                      | Domain Name System (DNS) to associate human-friendly domain names with IP addresses                               |
 | **Security**      | [IAM](https://cloud.ibm.com/docs/account?topic=account-cloudaccess)                                                                        | IBM Cloud Identity & Access Management                                                                            |
-|                   | [BYO Bastion Host on VPC VSI](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-vpc-secure-management-bastion-server) | Remote access with Privileged Access Management                                                                   |
+|                   | [Bastion Host on VPC VSI](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-vpc-secure-management-bastion-server) | Remote access with Privileged Access Management                                                                   |
 |                   | [Virtual Private Clouds (VPCs), Subnets, Security Groups, ACLs](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started)                  | Core Network Protection for web, app, and database tiers                                                          |
 |                   | [Cloud Internet Services (CIS)](https://cloud.ibm.com/docs/cis?topic=cis-getting-started)                                                  | DDoS protection and Web App Firewall                                                                              |
 |                   | [Key protect](https://cloud.ibm.com/docs/key-protect) or [HPCS](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-get-started)          | Hardware security module (HSM) and Key Management Service                                                         |

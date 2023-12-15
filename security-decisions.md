@@ -12,8 +12,10 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Security Architecture Decisions
+# Security architecture decisions
 {: #security-decisions}
+
+The following are security architecture decisions for the Oracle RAC on Power Virtual Server resiliency pattern.
 
 | **Architecture Decision**                             | **Requirements**                                                                                                        | **Decision**                                                                                                       | **Rationale**                                                                                                                                                                                                                           |
 |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

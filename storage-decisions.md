@@ -15,6 +15,8 @@ keywords:
 # Storage Architecture Decisions
 {: #storage-decisions}
 
+The following are storage architecture decisions for the Oracle RAC on Power Virtual Server resiliency pattern.
+
 | **Architecture Decision**                    | **Requirements**     | **Decision**   | **Rationale**                                                              |
 |--------------------------------|----------------------|----------------------|----------------------------------------------------------------------------------------|
 | Primary Storage Production     | Oracle Production DB | Tier 1               | Tier 1 is recommended for Oracle RAC production                                        |

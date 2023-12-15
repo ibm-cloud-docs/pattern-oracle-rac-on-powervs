@@ -12,7 +12,7 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Storage Considerations
+# Storage considerations
 {: #storage-considerations}
 
 PowerVS provides shared storage capability that is required for implementing Oracle RAC cluster and Oracle ASM. Oracle ASM (Automatic Storage Management) is used to provide data consistency across nodes in RAC. Oracle ASM is a critical component of Oracle RAC architecture. For each Power Systems Virtual Server instance, the user has two options a) storage tier - Tier 1 (NVMe-based flash storage) and b) Tier 3 (SSD flash storage). The storage tiers in Power Systems Virtual Server are based on I/O operations per second (IOPS). This means that the performance of your storage volumes is limited to the maximum number of IOPS based on volume size and storage tier. Although the exact numbers might change over time, the Tier 1 storage is currently set to 10 IOPS/GB and the Tier 3 storage is currently set to 3 IOPS/GB. For example, a 100 GB Tier 1 storage volume can receive up to 1000 IOPS and a 100 GB Tier 3 storage volume can receive up to 300 IOPs.

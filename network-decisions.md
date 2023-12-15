@@ -12,8 +12,10 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Network Architecture Decisions
+# Network architecture decisions
 {: #network-decisions}
+
+The following are network architecture decisions for the Oracle RAC on Power Virtual Server resiliency pattern.
 
 |**Architecture Decision**                                   | **Requirements**                                                                                                           | **Decision**                                                      | **Rationale**                                                                                                                                                                                                                                                   |
 |-----------------------------------------------|----------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|

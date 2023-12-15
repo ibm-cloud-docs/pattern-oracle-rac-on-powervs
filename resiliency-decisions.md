@@ -12,8 +12,10 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Resiliency Architecture Decisions
+# Resiliency architecture decisions
 {: #resiliency-decisions}
+
+The following are Resiliency architecture decisions for the Oracle RAC on Power Virtual Server resiliency pattern.
 
 | **Architecture Decision**        | **Requirements** | **Decision**                    |**Rationale**                                                                                                                                                                                       |
 |--------------------|------------------|----------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
