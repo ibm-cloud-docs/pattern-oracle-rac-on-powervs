@@ -10,7 +10,7 @@ keywords:
 # The release that the reference architecture describes
 
 authors:
-  - name: Carol Hernandez
+  - name: Doug Eppard
 
 version: 1.0
 
@@ -20,9 +20,9 @@ docs: https://cloud.ibm.com/docs/pattern-oracle-rac-on-powervs
 
 content-type: reference-architecture
 
-{{site.data.keyword.attribute-definition-list}}
-
 ---
+
+{{site.data.keyword.attribute-definition-list}}
 
 # Oracle RAC on Power Virtual Server
 {: #oracle-rac-on-powervs}
