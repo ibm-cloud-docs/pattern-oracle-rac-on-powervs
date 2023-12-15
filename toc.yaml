@@ -20,12 +20,11 @@ toc:
       id: overview
       topics:
       - overview.md
-      - requirements.md
 
   - navgroup:
       id: architecture
       topics:
-      - reference-architecture.md
+      - reference-architecture-oracle-rac-on-powervs.md
 
   - navgroup:
       id: plan
@@ -56,8 +55,8 @@ toc:
             navtitle: Security
           - topic: resiliency-decisions.md
             navtitle: Resiliency
-          - topic: observability-decisions.md
-            navtitle: Observability
+          - topic: service-management-decisions.md
+            navtitle: Service Management
 
   - navgroup:
       id: references

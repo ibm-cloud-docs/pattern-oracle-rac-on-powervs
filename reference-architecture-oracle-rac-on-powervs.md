@@ -7,17 +7,35 @@ lastupdated: "2023-11-28"
 subcollection: pattern-oracle-rac-on-powervs
 
 keywords:
+# The release that the reference architecture describes
 
----
+authors:
+  - name: Carol Hernandez
+
+version: 1.0
+
+deployment-url:
+
+docs: https://cloud.ibm.com/docs/pattern-oracle-rac-on-powervs
+
+content-type: reference-architecture
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Architecture
-{: #architecture}
+---
 
-A reference architecture for Oracle RAC, High Availability, in a single zone region, represents a particular solution, based on best practices and use-cases.
+# Oracle RAC on Power Virtual Server
+{: #oracle-rac-on-powervs}
+{: toc-content-type="reference-architecture"}
+{: toc-version="1.0"}
 
-The architecture below lists a reference solution which has Power Virtual server environment and IBM Cloud VPC with the following components.
+The reference architecture for Oracle RAC, High Availability, in a single zone region, represents a solution, based on best practices and use-cases.
+
+Architecture Diagram
+
+![A screenshot of a computer Description automatically generated](6967d9da31401f1b61fcb03e7f58039f.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
+
+The architecture diagram in Figure 1 illustrates a reference solution which has Power Virtual server environment and IBM Cloud VPC for an Oracle RAC deployment.
 
 A Single Zone Region:
 
@@ -31,7 +49,7 @@ A Single Zone Region:
 
     -   Workload PowerVS cluster: Oracle RAC
 
-Here are the solution component details
+Below are the solution component details
 
 1.  PowerVS systems are created in a PowerVS workspace. This workspace acts as a container for all PowerVS instances at a specific geographic region
 
@@ -51,11 +69,54 @@ Here are the solution component details
 
 9.  Get visibility into the performance and health of your resources by configuring the [monitoring](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-monitor-sysdig#sysdig-view-ui) and [activity tracker](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-at-events), observability components
 
-Solution Architecture Diagram
 
-![A screenshot of a computer Description automatically generated](6967d9da31401f1b61fcb03e7f58039f.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
+## Design Scope
+{: #design-scope}
 
-Solution Components
+Following the Architecture Framework, the Oracle RAC on Power Virtual Server covers design considerations for the following aspects and domains:
+
+-   **Compute:** Power Systems Virtual Servers
+
+-   **Storage:** Primary Storage, Backup Storage
+
+-   **Networking:** Enterprise Connectivity, Segmentation, Cloud Native Connectivity, DNS
+
+-   **Security:** Data Security, Application Security, Infrastructure Security
+
+-   **Resiliency:** Backup and Restore, High Availability, Disaster Recovery
+
+-   **Observability:** Monitoring, Logging, Auditing
+
+ ![Oracle RAC on Power Virtual Server Solution Design Scope](oracle-rac-on-powervs-heatmap.png){: caption="Figure 1. Oracle RAC on Power Virtual Server Architecture Design Scope" caption-side="bottom"}
+
+The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction to the Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro) for more details.
+
+## Requirements
+{: #requirements}
+
+The following represents a baseline set of requirements which are applicable to most clients and critical to successful Oracle RAC on PowerVS deployment.
+
+| **Aspect**                     | **Requirement**                                                                                                                                                                                                     |
+|---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Compute**        | Provide different levels of cpu and memory options to match the type of workloads                                                                                                                                                      |
+| **Storage**        | Provide different storage Tier level for type of workloads                                                                                                                                                                             |
+| **Network**        | Enterprise connectivity to customer data center(s) to provide access to applications from on-prem                                                                                                                                      |
+|                                 | Provide network isolation with the ability to segregate applications based on attributes such as data classification, public vs internal apps and function                                                                             |
+|                                 | Maintain IP addresses in the target (BYOIP)                                                                                                                                                                                            |
+| **Security**       | Provide data encryption at rest                                                                                                                                                                                                        |
+|                                 | IDS/IAM Services to target IBM PowerVS environment                                                                                                                                                                                     |
+|                                 | Firewalls must be restrictively configured to provide advanced security features and prevent all traffic, both inbound and outbound, except that which is specifically required, documented, and approved and include IPS/IDS services |
+| **Resiliency**     | Multi-Region capability to support disaster recovery strategy and solution that allows all production applications to be included leveraging cloud infrastructure DR capabilities                                                      |
+|                                 | RTO/RPO = 4 hours/15 minutes; rollback to original environments should occur no later than specified RTOs                                                                                                                              |
+|                                 | Provide backup for Infrastructure components and Database hosted in the cloud environment.                                                                                                                                             |
+| **Observability**  | Provide Health and System Monitoring with ability to monitor and correlate performance metrics and events and provide alerting across applications and infrastructure                                                                  |
+|                                 | Ability to diagnose issues and exceptions and identify error source                                                                                                                                                                    |
+|                                 | Automate management processes to keep applications and infrastructure secure, up to date, and available                                                                                                                                |
+| **Other**          | Migrate workloads from existing data center to IBM PowerVS                                                                                                                                                                             |
+{: caption="Table 1. Oracle RAC on PowerVS Requirements" caption-side="bottom"}
+
+## Components
+{: #components}
 
 | **Aspect**       | **Component**                                                                                                                    | **How it is used in solution**                                                                                    |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
