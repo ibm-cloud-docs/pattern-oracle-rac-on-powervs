@@ -86,7 +86,7 @@ Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-f
 
 -   **Resiliency:** Backup
 
--   **Service Management:** Monitoring, Logging, Alerting, Management/Orchestration
+-   **Service management:** Monitoring, Logging, Alerting, Management/Orchestration
 
  ![Oracle RAC on Power Virtual Server Solution Design Scope](oracle-rac-on-powervs-heatmap.png){: caption="Figure 1. Oracle RAC on Power Virtual Server Architecture Design Scope" caption-side="bottom"}
 
