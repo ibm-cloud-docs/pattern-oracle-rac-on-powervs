@@ -17,11 +17,14 @@ keywords:
 
 Database resiliency refers to the ability of a database system to continue functioning correctly and efficiently in the face of various challenges, such as hardware failures, software bugs, human errors, or malicious attacks. For Oracle Database, resiliency encompasses several key aspects:
 
-**High availability:** Oracle Real Application Clusters (RAC) to ensure that the database remains available even if single node failure occurs.
+High availability
+:    Oracle Real Application Clusters (RAC) to ensure that the database remains available even if single node failure occurs.
 
-**Backup and recovery:** Oracle Recovery Manager (RMAN) and other backup solutions allow for regular backups of the database. Regular backups ensure that data can be recovered if there is corruption or data loss due to systems or users.
+Backup and recovery
+:    Oracle Recovery Manager (RMAN) and other backup solutions allow for regular backups of the database. Regular backups ensure that data can be recovered if there is corruption or data loss due to systems or users.
 
-**Disaster recovery:** Oracle Data Guard and other DR solutions help in protecting the database against site-wide failures, such as natural disasters, by maintaining standby databases in geographically separate locations. Disaster Recovery is covered by the “Oracle Disaster Recovery on Power Virtual Server”.
+Disaster recovery
+:    Oracle Data Guard and other DR solutions help in protecting the database against site-wide failures, such as natural disasters, by maintaining standby databases in geographically separate locations. Disaster Recovery is covered by the “Oracle Disaster Recovery on Power Virtual Server”.
 
 Oracle Real Application Clusters (RAC) is a clustered version of Oracle Database, which provides high availability and scalability. Backup and restore operations for Oracle RAC are crucial to ensure data integrity and availability. Disaster Recovery for Oracle RAC involves strategies to ensure the availability and integrity of the database if a failure, disaster, or other disruptions occur.
 
