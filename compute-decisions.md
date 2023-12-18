@@ -17,7 +17,7 @@ keywords:
 
 The following are compute architecture decisions for the Oracle RAC on Power Virtual Server resiliency pattern.
 
-| **Architecture Decision**        | **Requirements**| **Decision**| **Rationale**|
+| Architecture decision        | Requirements | Decision | Rationale |
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------|-----------------------------------------|
-| Compute for Oracle RAC | Target environment to match specific workload requirements | [Power Systems Virtual Server](https://cloud.ibm.com/power/overview) | Hardware flexibility For production use |
+| Compute for Oracle RAC | Target the environment to match specific workload requirements | [Power Systems Virtual Server](https://cloud.ibm.com/power/overview){: external} | Hardware flexibility For production use |
 {: caption="Table 1. Compute Architecture Decisions" caption-side="bottom"}

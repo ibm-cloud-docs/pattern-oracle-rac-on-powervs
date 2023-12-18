@@ -36,109 +36,106 @@ The reference architecture for Oracle RAC, High Availability, in a single zone r
 
 ![A screenshot of a computer Description automatically generated](6967d9da31401f1b61fcb03e7f58039f.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
 
-The architecture diagram in Figure 1 illustrates a reference solution which has Power Virtual server environment and IBM Cloud VPC for an Oracle RAC deployment.
+The architecture diagram in Figure 1 illustrates a reference solution that has Power Virtual server environment and IBM Cloud VPC for an Oracle RAC deployment.
 
 A Single Zone Region:
 
--   VPC environment
+- VPC environment
+   - Edge VPC: This landing zone hosts key security components that are needed in VPC and cloud management
+   - Management VPC: This landing zone hosts all the management stack that is needed to manage the VPC and PowerVS environment
 
-    -   Edge VPC: This landing zone hosts key security solution components needed in VPC and cloud management
+- PowerVS Environment
+   - Workload PowerVS cluster: Oracle RAC
 
-    -   Management VPC: This landing zone hosts all the management stack needed to manage VPC and PowerVS environment
+The solution component details include:
 
--   PowerVS Environment
+1. PowerVS systems are created in a PowerVS workspace. This workspace acts as a container for all PowerVS instances at a specific geographic region
 
-    -   Workload PowerVS cluster: Oracle RAC
+2. For each Power Systems Virtual Server instance, a storage tier (Tier 1 or Tier 3) is selected. The storage tiers in Power Systems Virtual Server are based on I/O operations per second (IOPS)
 
-Below are the solution component details
+3. The client network connectivity is accomplished from on-premises to IBM Cloud and PowerVS is setup through Direct Link (2.0) and Transit Gateway
 
-1.  PowerVS systems are created in a PowerVS workspace. This workspace acts as a container for all PowerVS instances at a specific geographic region
+4. An edge VPC is deployed which contains routing and security functions. It contains Bastion host, Firewalls providing advanced security functions
 
-2.  For each Power Systems Virtual Server instance, a storage tier (Tier 1 or Tier 3) is selected. The storage tiers in Power Systems Virtual Server are based on I/O operations per second (IOPS)
+5. Managed VPC provides access to compute, storage, and network services to enable the application provider's administrators to monitor, operate, and maintain the environment. The intent is to completely isolate management operations from the VPC running consumer workloads
 
-3.  The client network connectivity is accomplished from on-premise to IBM Cloud and PowerVS is setup through Direct Link (2.0) and Transit Gateway
+6. Public connectivity also routes through Cloud Internet services that can provide load balancing, failover, and DDoS services, then routes to the edge VPC
 
-4.  An edge VPC is deployed which contains routing and security function. It contains Bastion host, Firewalls providing advanced security functions
+7. Virtual Private endpoints are used to provide connectivity to cloud native services from each VPC
 
-5.  Managed VPC provides access to compute, storage, and network services to enable the application provider's administrators to monitor, operate, and maintain the environment. The intent is to completely isolate management operations from the VPC running consumer workloads
+8. Direct Link (2.0) and Transit Gateway are used to connect PowerVS environment the core workload hosting the Oracle RAC application and databases to a management VPC where various management tools can be deployed
 
-6.  Public connectivity also routes through Cloud Internet services which can provide load balancing, failover, and DDoS services, then routes to the edge VPC
-
-7.  Virtual Private endpoints are used to provide connectivity to cloud native services from each VPC
-
-8.  Direct Link (2.0) and Transit Gateway is used to connect PowerVS environment the core workload hosting the Oracle RAC application and database(s) to a management VPC where various management tools can be deployed
-
-9.  Get visibility into the performance and health of your resources by configuring the [monitoring](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-monitor-sysdig#sysdig-view-ui) and [activity tracker](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-at-events), observability components
+9. Get visibility into the performance and health of your resources by configuring the [monitoring](/docs/power-iaas?topic=power-iaas-monitor-sysdig#sysdig-view-ui) and [activity tracker](/docs/power-iaas?topic=power-iaas-at-events), observability components
 
 
 ## Design scope
 {: #design-scope}
 
-Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-taxonomy), the Oracle RAC on Power Virtual Server covers design considerations and architecture decisions for the following aspects and domains:
+Following the [Architecture Framework](/docs/architecture-framework?topic=architecture-framework-taxonomy), the Oracle RAC on Power Virtual Server covers design considerations and architecture decisions for the following aspects and domains:
 
--   **Compute:** Power Systems Virtual Servers
+- **Compute:** Power Systems Virtual Servers
 
--   **Storage:** Primary Storage, Backup Storage
+- **Storage:** Primary Storage, Backup Storage
 
--   **Networking:** Enterprise Connectivity, Segmentation, Cloud Native Connectivity, DNS
+- **Networking:** Enterprise Connectivity, Segmentation, Cloud Native Connectivity, DNS
 
--   **Security:** Data Security, Application Security, Infrastructure Security
+- **Security:** Data Security, Application Security, Infrastructure Security
 
--   **Resiliency:** Backup
+- **Resiliency:** Backup
 
--   **Service management:** Monitoring, Logging, Alerting, Management/Orchestration
+- **Service management:** Monitoring, Logging, Alerting, Management/Orchestration
 
- ![Oracle RAC on Power Virtual Server Solution Design Scope](oracle-rac-on-powervs-heatmap.png){: caption="Figure 1. Oracle RAC on Power Virtual Server Architecture Design Scope" caption-side="bottom"}
+![Oracle RAC on Power Virtual Server Solution Design Scope](oracle-rac-on-powervs-heatmap.png){: caption="Figure 2. Oracle RAC on Power Virtual Server Architecture Design Scope" caption-side="bottom"}
 
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction to the architecture framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro) for more details.
+The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction to the architecture framework](/docs/architecture-framework?topic=architecture-framework-intro) for more details.
 
 ## Requirements
 {: #requirements}
 
-The following represents a baseline set of requirements which are applicable to most clients and critical to successful Oracle RAC on PowerVS deployment.
+The following represents a baseline set of requirements that are applicable to most clients and critical to successful Oracle RAC on PowerVS deployment.
 
-| **Aspect**                     | **Requirement**                                                                                                                                                                                                     |
+| Aspect                     | Requirement                                                                                                                                                                                                     |
 |---------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Compute**        | Provide different levels of cpu and memory options to match the type of workloads                                                                                                                                                      |
-| **Storage**        | Provide different storage Tier level for type of workloads                                                                                                                                                                             |
-| **Network**        | Enterprise connectivity to customer data center(s) to provide access to applications from on-premise                                                                                                                                      |
-|                                 | Provide network isolation with the ability to segregate applications based on attributes such as data classification, public vs internal apps and function                                                                             |
+| Compute        | Provide different levels of cpu and memory options to match the type of workloads                                                                                                                                                      |
+| Storage        | Provide different storage tier levels for type of workloads                                                                                                                                                                             |
+| Network        | Enterprise connectivity to customer data centers to provide access to applications from on-premises                                                                                                                                      |
+|                                 | Provide network isolation with the ability to separate applications based on attributes such as data classification, public versus internal apps and function                                                                             |
 |                                 | Maintain IP addresses in the target (BYOIP)                                                                                                                                                                                            |
-| **Security**       | Provide data encryption at rest                                                                                                                                                                                                        |
+| Security       | Provide data encryption at rest                                                                                                                                                                                                        |
 |                                 | IDS/IAM Services to target IBM PowerVS environment                                                                                                                                                                                     |
 |                                 | Firewalls must be restrictively configured to provide advanced security features and prevent all traffic, both inbound and outbound, except that which is specifically required, documented, and approved and include IPS/IDS services |
-| **Resiliency**     | Multi-Region capability to support disaster recovery strategy and solution that allows all production applications to be included leveraging cloud infrastructure DR capabilities                                                      |
+| Resiliency     | Multi-Region capability to support disaster recovery strategy and solution that allows all production applications to be included by using cloud infrastructure DR capabilities                                                      |
 |                                 | RTO/RPO = 4 hours/15 minutes; rollback to original environments should occur no later than specified RTOs                                                                                                                              |
-|                                 | Provide backup for Infrastructure components and Database hosted in the cloud environment.                                                                                                                                             |
-| **Service management**  | Provide Health and System Monitoring with ability to monitor and correlate performance metrics and events and provide alerting across applications and infrastructure                                                                  |
+|                                 | Provide backup for Infrastructure components and Database that are hosted in the cloud environment.                                                                                                                                             |
+| Service management  | Provide Health and System Monitoring with ability to monitor and correlate performance metrics and events and provide alerting across applications and infrastructure                                                                  |
 |                                 | Ability to diagnose issues and exceptions and identify error source                                                                                                                                                                    |
 |                                 | Automate management processes to keep applications and infrastructure secure, up to date, and available                                                                                                                                |
-{: caption="Table 1. Oracle RAC on PowerVS Requirements" caption-side="bottom"}
+{: caption="Table 1. Requirements" caption-side="bottom"}
 
 ## Components
 {: #components}
 
-| **Aspect**       | **Component**                                                                                                                    | **How it is used in solution**                                                                                    |
+| Aspect       | Component                                                                                                                    | How the component is used                                                                                    |
 |-------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| **Compute**       | [PowerVS](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started)                                                          | Web, App, and database servers                                                                                    |
-| **Storage**       | [PowerVS Storage](https://cloud.ibm.com/docs/openshift?topic=openshift-vpc-block)                                                          | Database servers shared storage for RAC                                                                           |
-|                   | [VPC Block Storage](https://cloud.ibm.com/docs/vpc?topic=vpc-block-storage-about&interface=ui#block-storage-overview)                      | Web app storage if needed                                                                                         |
-|                   | [VPC File Storage](https://cloud.ibm.com/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui)                                           | Web app shared storage if needed                                                                                  |
-|                   | [Cloud Object Storage](https://cloud.ibm.com/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage)    | Web app static content, backups, logs for short and long-term retention (application, operational and audit logs) |
-| **Networking**    | [VPC Virtual Private Network (VPN)](https://cloud.ibm.com/docs/iaas-vpn?topic=iaas-vpn-getting-started)                                    | Remote access to manage resources in private network                                                              |
-|                   | [Virtual Private Gateway & Virtual Private Endpoint (VPE)](https://cloud.ibm.com/docs/vpc?topic=vpc-about-vpe)                             | For private network access to Cloud Services, e.g., Key Protect, COS, etc.                                        |
-|                   | [VPC Load Balancers](https://cloud.ibm.com/docs/vpc?topic=vpc-load-balancers)                                                              | Application Load Balancing for web servers, app servers, and database servers                                     |
-|                   | [Public Gateway](https://cloud.ibm.com/docs/vpc?topic=vpc-about-public-gateways&interface=ui)                                              | For web server access to the internet                                                                             |
-|                   | [Cloud Internet Services (CIS)](https://cloud.ibm.com/docs/cis?topic=cis-getting-started)                                                  | Public Load balancing of web servers traffic across zones in the region                                           |
-|                   | [DNS Services](https://cloud.ibm.com/docs/dns-svcs?topic=dns-svcs-about-dns-services)                                                      | Domain Name System (DNS) to associate human-friendly domain names with IP addresses                               |
-| **Security**      | [IAM](https://cloud.ibm.com/docs/account?topic=account-cloudaccess)                                                                        | IBM Cloud Identity & Access Management                                                                            |
-|                   | [Bastion Host on VPC VSI](https://cloud.ibm.com/docs/solution-tutorials?topic=solution-tutorials-vpc-secure-management-bastion-server) | Remote access with Privileged Access Management                                                                   |
-|                   | [Virtual Private Clouds (VPCs), Subnets, Security Groups, ACLs](https://cloud.ibm.com/docs/vpc?topic=vpc-getting-started)                  | Core Network Protection for web, app, and database tiers                                                          |
-|                   | [Cloud Internet Services (CIS)](https://cloud.ibm.com/docs/cis?topic=cis-getting-started)                                                  | DDoS protection and Web App Firewall                                                                              |
-|                   | [Key protect](https://cloud.ibm.com/docs/key-protect) or [HPCS](https://cloud.ibm.com/docs/hs-crypto?topic=hs-crypto-get-started)          | Hardware security module (HSM) and Key Management Service                                                         |
-|                   | [Secrets Manager](https://cloud.ibm.com/docs/secrets-manager)                                                                              | Certificate and Secrets Management                                                                                |
-| **Resiliency**    | [PowerVS](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started)                                                          | Multiple PowerVS on separate physical servers with VM and Storage anti-affinity policy                            |
-| **Service management** | [IBM Cloud Monitoring](https://cloud.ibm.com/docs/monitoring?topic=monitoring-about-monitor)                                               | Apps and operational monitoring                                                                                   |
-|                   | [IBM Log Analysis](https://cloud.ibm.com/docs/log-analysis?topic=log-analysis-getting-started)                                             | Apps and operational logs                                                                                         |
-|                   | [Activity Tracker Event Routing](https://cloud.ibm.com/docs/atracker?topic=atracker-about)                                                 | Audit logs                                                                                                        |
-{: caption="Table 3. Solution Components" caption-side="bottom"}
+| Compute       | [PowerVS](/docs/power-iaas?topic=power-iaas-getting-started)                                                          | Web, App, and database servers                                                                                    |
+| Storage       | [PowerVS Storage](/docs/openshift?topic=openshift-vpc-block)                                                          | Database servers shared storage for RAC                                                                           |
+|                   | [VPC Block Storage](/docs/vpc?topic=vpc-block-storage-about&interface=ui#block-storage-overview)                      | Web app storage if needed                                                                                         |
+|                   | [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui)                                           | Web app shared storage if needed                                                                                  |
+|                   | [Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage)    | Web app static content, backups, logs for short and long-term retention (application, operational, and audit logs) |
+| Networking   | [VPC Virtual Private Network (VPN)](/docs/iaas-vpn?topic=iaas-vpn-getting-started)                                    | Remote access to manage resources in a private network                                                              |
+|                   | [Virtual Private Gateway & Virtual Private Endpoint (VPE)](/docs/vpc?topic=vpc-about-vpe)                             | For private network access to Cloud Services, for example, Key Protect, Cloud Object Storage, and so on.                                        |
+|                   | [VPC Load Balancers](/docs/vpc?topic=vpc-load-balancers)                                                              | Application Load Balancing for web servers, app servers, and database servers                                     |
+|                   | [Public Gateway](/docs/vpc?topic=vpc-about-public-gateways&interface=ui)                                              | For web server access to the internet                                                                             |
+|                   | [Cloud Internet Services (CIS)](/docs/cis?topic=cis-getting-started)                                                  | Public Load balancing of web server traffic across zones in the region                                           |
+|                   | [DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services)                                                      | The domain Name System (DNS) to associate human-friendly domain names with IP addresses                               |
+| Security      | [IAM](/docs/account?topic=account-cloudaccess)                                                                        | IBM Cloud Identity & Access Management                                                                            |
+|                   | [Bastion Host on VPC VSI](/docs/solution-tutorials?topic=solution-tutorials-vpc-secure-management-bastion-server) | Remote access with Privileged Access Management                                                                   |
+|                   | [Virtual Private Clouds (VPCs), Subnets, Security Groups, ACLs](/docs/vpc?topic=vpc-getting-started)                  | Core Network Protection for web, app, and database tiers                                                          |
+|                   | [Cloud Internet Services (CIS)](/docs/cis?topic=cis-getting-started)                                                  | DDoS protection and Web App Firewall                                                                              |
+|                   | [Key Protect](/docs/key-protect) or [HPCS](/docs/hs-crypto?topic=hs-crypto-get-started)          | Hardware security module (HSM) and Key Management Service                                                         |
+|                   | [Secrets Manager](/docs/secrets-manager)                                                                              | Certificate and Secrets Management                                                                                |
+| **Resiliency**    | [PowerVS](/docs/power-iaas?topic=power-iaas-getting-started)                                                          | Multiple PowerVS on separate physical servers with VM and Storage anti-affinity policy                            |
+| Service management | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitor)                                               | Apps and operational monitoring                                                                                   |
+|                   | [IBM Log Analysis](/docs/log-analysis?topic=log-analysis-getting-started)                                             | Apps and operational logs                                                                                         |
+|                   | [Activity Tracker Event Routing](/docs/atracker?topic=atracker-about)                                                 | Audit logs                                                                                                        |
+{: caption="Table 2. Components" caption-side="bottom"}

@@ -15,20 +15,20 @@ keywords:
 # References
 {: #references}
 
-[Getting started with IBM Power Systems Virtual Servers](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-getting-started)
+1. [Getting started with IBM Power Systems Virtual Servers](/docs/power-iaas?topic=power-iaas-getting-started)
 
-[Oracle RAC implementation on IBM Power Systems Virtual Server - Practical guide for deploying Oracle Real Application Cluster](https://www.ibm.com/support/pages/oracle-rac-implementation-ibm-power-systems-virtual-server)
+1. [Oracle RAC implementation on IBM Power Systems Virtual Server - Practical guide for deploying Oracle Real Application Cluster](https://www.ibm.com/support/pages/oracle-rac-implementation-ibm-power-systems-virtual-server){: external}
 
-[IBM Power Systems Virtual Server integration with x86-based workloads](https://cloud.ibm.com/media/docs/downloads/power-iaas-tutorials/PowerVS_and_x86_Integration_Tutorial_v1.pdf)
+1. [IBM Power Systems Virtual Server integration with x86-based workloads](https://cloud.ibm.com/media/docs/downloads/power-iaas-tutorials/PowerVS_and_x86_Integration_Tutorial_v1.pdf){: external}
 
-[PowerVS network options](https://cloud.ibm.com/docs/power-iaas?topic=power-iaas-network-architecture-diagrams)
+1. [PowerVS network options](/docs/power-iaas?topic=power-iaas-network-architecture-diagrams)
 
-[PowerVS connecting to IBM VPC Public Cloud](https://www.ibm.com/blog/connecting-ibm-vpc-to-ibm-power-virtual-servers-and-ibm-cloud-object-storage/)
+1. [PowerVS connecting to IBM VPC Public Cloud](https://www.ibm.com/blog/connecting-ibm-vpc-to-ibm-power-virtual-servers-and-ibm-cloud-object-storage/){: external}
 
-[PowerVS Launch Page](https://cloud.ibm.com/catalog/services/power-systems-virtual-server)
+1. [PowerVS Launch Page](https://cloud.ibm.com/catalog/services/power-systems-virtual-server){: external}
 
-[PowerVS Documentation](https://cloud.ibm.com/docs/power-iaas)
+1. [PowerVS Documentation](/docs/power-iaas)
 
-[IBM Power Systems Community](https://community.ibm.com/community/user/power/home)
+1. [IBM Power Systems Community](https://community.ibm.com/community/user/power/home){: external}
 
-[IBM Redbook – Oracle on Power Systems](https://www.redbooks.ibm.com/redbooks/pdfs/sg248485.pdf)
+1. [IBM Redbook – Oracle on Power Systems](https://www.redbooks.ibm.com/redbooks/pdfs/sg248485.pdf){: external}
