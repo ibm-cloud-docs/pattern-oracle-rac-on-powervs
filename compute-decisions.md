@@ -12,7 +12,7 @@ keywords:
 
 {{site.data.keyword.attribute-definition-list}}
 
-# Compute architecture decisions
+# Architecture decisions for compute
 {: #compute-decisions}
 
 The following are compute architecture decisions for the Oracle RAC on Power Virtual Server resiliency pattern.

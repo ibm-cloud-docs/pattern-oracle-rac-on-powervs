@@ -10,7 +10,7 @@ keywords:
 # The release that the reference architecture describes
 
 authors:
-  - name: Doug Eppard
+  - name: Naeem Altaf
 
 version: 1.0
 
@@ -90,7 +90,7 @@ Following the [Architecture Framework](https://cloud.ibm.com/docs/architecture-f
 
  ![Oracle RAC on Power Virtual Server Solution Design Scope](oracle-rac-on-powervs-heatmap.png){: caption="Figure 1. Oracle RAC on Power Virtual Server Architecture Design Scope" caption-side="bottom"}
 
-The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction to the Architecture Framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro) for more details.
+The Architecture Framework provides a consistent approach to design cloud solutions by addressing requirements across a set of "aspects" and "domains", which are technology-agnostic architectural areas that need to be considered for any enterprise solution. See [Introduction to the architecture framework](https://cloud.ibm.com/docs/architecture-framework?topic=architecture-framework-intro) for more details.
 
 ## Requirements
 {: #requirements}
