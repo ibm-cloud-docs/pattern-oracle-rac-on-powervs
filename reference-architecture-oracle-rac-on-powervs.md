@@ -113,7 +113,6 @@ The following represents a baseline set of requirements which are applicable to 
 | **Service management**  | Provide Health and System Monitoring with ability to monitor and correlate performance metrics and events and provide alerting across applications and infrastructure                                                                  |
 |                                 | Ability to diagnose issues and exceptions and identify error source                                                                                                                                                                    |
 |                                 | Automate management processes to keep applications and infrastructure secure, up to date, and available                                                                                                                                |
-| **Other**          | Migrate workloads from existing data center to IBM PowerVS                                                                                                                                                                             |
 {: caption="Table 1. Oracle RAC on PowerVS Requirements" caption-side="bottom"}
 
 ## Components
