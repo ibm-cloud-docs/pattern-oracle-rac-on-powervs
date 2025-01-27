@@ -28,7 +28,7 @@ Disaster recovery
 
 Oracle Real Application Clusters (RAC) is a clustered version of Oracle Database, which provides high availability and scalability. Backup and restore operations for Oracle RAC are crucial to ensure data integrity and availability. Disaster Recovery for Oracle RAC involves strategies to ensure the availability and integrity of the database if a failure, disaster, or other disruptions occur.
 
-![Disaster Recovery for Oracle RAC](be56ac77cfda7c1ada11870ada8c93dc.png){: caption="Figure 1. Disaster Recovery for Oracle RAC" caption-side="bottom"}
+![Disaster Recovery for Oracle RAC](be56ac77cfda7c1ada11870ada8c93dc.png){: caption="Disaster Recovery for Oracle RAC" caption-side="bottom"}
 
 By understanding the unique capabilities of Oracle RAC, organizations with proper planning can plan for their data to be safe and recoverable. For backup and restore, there’s a seamless integration with Oracle Recovery Manager (RMAN) to direct database backup and restore activity to IBM Cloud Object Storage. Additional information is at [IBM Cloud Object Storage
 for Oracle RMAN Backup](https://www.ibm.com/downloads/cas/O0BZVBPN){: external}.
@@ -41,7 +41,7 @@ Backup considerations include deciding on how often a full database backup and a
 | Backup              | Frequency | Retention |
 | Full                | Weekly    | 5 Weeks   |
 | Incremental         | Daily     | 30 Days   |
-{: caption="Table 1. Database Backup and Retention Recommendations" caption-side="bottom"}
+{: caption="Database Backup and Retention Recommendations" caption-side="bottom"}
 
 For OS level, Veeam is recommended for backup. Veeam Agents for IBM AIX provide capabilities to backup and back up specific directories with files or individual files.
 
@@ -50,4 +50,4 @@ For OS level, Veeam is recommended for backup. Veeam Agents for IBM AIX provide 
 | Backup                | Frequency | Retention |
 | Full                  | Monthly   | 60 Days   |
 | Incremental           | Daily     | 60 Days   |
-{: caption="Table 2. OS Backup and Retention Recommendations" caption-side="bottom"}
+{: caption="OS Backup and Retention Recommendations" caption-side="bottom"}
