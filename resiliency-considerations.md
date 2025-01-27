@@ -30,8 +30,7 @@ Oracle Real Application Clusters (RAC) is a clustered version of Oracle Database
 
 ![Disaster Recovery for Oracle RAC](be56ac77cfda7c1ada11870ada8c93dc.png){: caption="Disaster Recovery for Oracle RAC" caption-side="bottom"}
 
-By understanding the unique capabilities of Oracle RAC, organizations with proper planning can plan for their data to be safe and recoverable. For backup and restore, there’s a seamless integration with Oracle Recovery Manager (RMAN) to direct database backup and restore activity to IBM Cloud Object Storage. Additional information is at [IBM Cloud Object Storage
-for Oracle RMAN Backup](https://www.ibm.com/downloads/cas/O0BZVBPN){: external}.
+By understanding the unique capabilities of Oracle RAC, organizations with proper planning can plan for their data to be safe and recoverable. For backup and restore, there’s a seamless integration with Oracle Recovery Manager (RMAN) to direct database backup and restore activity to IBM Cloud Object Storage.
 Recovery Manager (RMAN) is the native Oracle Database client that performs backup and recovery tasks for local and clustered databases and automates administration of configured backup strategies. RMAN has Oracle’s Secure Backup (OSB) cloud module with an SBT (Secure Backup) interface that enables the use of the S3 protocol for data backup to IBM Cloud Object Storage. OSB needs to be installed on both Oracle RAC nodes and might have licensing impacts.
 
 Backup considerations include deciding on how often a full database backup and an incremental backup are taken. A full backup captures the entire database, while an incremental backup captures only the changes since the last backup. For example, the customer might implement a weekly full backup and daily incremental backup for Oracle DB. These requirements are strictly determined by the customer based on their business needs. For Database level, the RMAN tool is recommended for backup.

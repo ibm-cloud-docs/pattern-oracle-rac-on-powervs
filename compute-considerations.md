@@ -50,7 +50,7 @@ Use the resize LPAR function to change LPAR’s core and memory dynamically up t
 Determine the need for a high availability (HA) solution for all nonproduction workloads such as dev, test, or noncritical environments. Run at least one identical nonproduction/DR RAC environment to apply the patches and fixes to test before you roll out to production environments.
 
 Data centers with PowerVS systems are hosted in various regions globally
-For up-to-date specifications, see [Power Virtual Server Infrastructure Customization](/docs/power-iaas?topic=power-iaas-about-virtual-server#hardware-specifications)
+For up-to-date specifications, see [Power Virtual Server Infrastructure Pricing](/docs/power-iaas?topic=power-iaas-pricing-virtual-server-on-cloud)
 
 
 For Oracle RAC, it is recommended to provision at least 2 nodes in a single zone on two separate physical servers that use placement group for High Availability of production workload. Deviation from this setup can cause latency. Databases typically experience growth over time so database size and expected data growth rates should be considered when you plan database deployments although there is the capability to extend storage capacity or volume size extension or add new shared volumes to the database.
