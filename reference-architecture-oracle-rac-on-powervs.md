@@ -34,7 +34,7 @@ The reference architecture for Oracle RAC, High Availability, in a single zone r
 ## Architecture diagram
 {: #architecture-diagram}
 
-![A screenshot of a computer Description automatically generated](Oracle RAC on Power VS.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
+![Solution Architecture](oracle-rac-on-Powervs.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
 
 The architecture diagram in Figure 1 illustrates a reference solution that has Power Virtual server environment and IBM Cloud VPC for an Oracle RAC deployment.
 
