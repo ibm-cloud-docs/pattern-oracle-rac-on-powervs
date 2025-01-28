@@ -20,4 +20,4 @@ The following are compute architecture decisions for the Oracle RAC on Power Vir
 | Architecture decision        | Requirements | Decision | Rationale |
 |--------------------------|----------------------------------------------|----------------------------------------------------------------------|-----------------------------------------|
 | Compute for Oracle RAC | Target the environment to match specific workload requirements | [Power Systems Virtual Server](https://cloud.ibm.com/power/overview){: external} | Hardware flexibility For production use |
-{: caption="Table 1. Compute Architecture Decisions" caption-side="bottom"}
+{: caption="Compute Architecture Decisions" caption-side="bottom"}

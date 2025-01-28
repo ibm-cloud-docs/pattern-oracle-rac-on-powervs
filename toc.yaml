@@ -14,18 +14,15 @@ toc:
     path: pattern-oracle-rac-on-powervs
     description: Oracle RAC PowerVS Architecture Pattern
     label: Oracle RAC on Power Virtual Server
-
   entries:
   - navgroup:
       id: overview
       topics:
       - overview.md
-
   - navgroup:
       id: architecture
       topics:
       - reference-architecture-oracle-rac-on-powervs.md
-
   - navgroup:
       id: plan
       topics:
@@ -57,7 +54,6 @@ toc:
             navtitle: Resiliency
           - topic: service-management-decisions.md
             navtitle: Service Management
-
   - navgroup:
       id: reference
       topics:

@@ -34,7 +34,7 @@ The reference architecture for Oracle RAC, High Availability, in a single zone r
 ## Architecture diagram
 {: #architecture-diagram}
 
-![A screenshot of a computer Description automatically generated](6967d9da31401f1b61fcb03e7f58039f.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
+![Solution Architecture](oracle-rac-on-powervs.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
 
 The architecture diagram in Figure 1 illustrates a reference solution that has Power Virtual server environment and IBM Cloud VPC for an Oracle RAC deployment.
 
@@ -65,7 +65,7 @@ The solution component details include:
 
 8. Direct Link (2.0) and Transit Gateway are used to connect PowerVS environment the core workload hosting the Oracle RAC application and databases to a management VPC where various management tools can be deployed
 
-9. Get visibility into the performance and health of your resources by configuring the [monitoring](/docs/power-iaas?topic=power-iaas-monitor-sysdig#sysdig-view-ui) and [activity tracker](/docs/power-iaas?topic=power-iaas-at-events), observability components
+9. Get visibility into the performance and health of your resources by configuring the [monitoring](/docs/power-iaas?topic=power-iaas-monitor-sysdig#sysdig-view-ui) and [Cloud Logs](/docs/cloud-logs), observability components
 
 
 ## Design scope
@@ -136,6 +136,5 @@ The following represents a baseline set of requirements that are applicable to m
 |                   | [Secrets Manager](/docs/secrets-manager)                                                                              | Certificate and Secrets Management                                                                                |
 | **Resiliency**    | [PowerVS](/docs/power-iaas?topic=power-iaas-getting-started)                                                          | Multiple PowerVS on separate physical servers with VM and Storage anti-affinity policy                            |
 | Service management | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitor)                                               | Apps and operational monitoring                                                                                   |
-|                   | [IBM Log Analysis](/docs/log-analysis?topic=log-analysis-getting-started)                                             | Apps and operational logs                                                                                         |
-|                   | [Activity Tracker Event Routing](/docs/atracker?topic=atracker-about)                                                 | Audit logs                                                                                                        |
+|                   | [IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-about-cl)                                             | Apps and operational logs, Audit Logs                                                                                         |
 {: caption="Table 2. Components" caption-side="bottom"}

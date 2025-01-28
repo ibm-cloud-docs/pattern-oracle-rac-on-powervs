@@ -25,9 +25,9 @@ keywords:
 
 1. [PowerVS connecting to IBM VPC Public Cloud](https://www.ibm.com/blog/connecting-ibm-vpc-to-ibm-power-virtual-servers-and-ibm-cloud-object-storage/){: external}
 
-1. [PowerVS Launch Page](https://cloud.ibm.com/catalog/services/power-systems-virtual-server){: external}
+1. [PowerVS Launch Page](https://test.cloud.ibm.com/power/overview){: external}
 
-1. [PowerVS Documentation](/docs/power-iaas)
+1. [PowerVS Documentation](/docs/power-iaas?topic=power-iaas-getting-started)
 
 1. [IBM Power Systems Community](https://community.ibm.com/community/user/power/home){: external}
 

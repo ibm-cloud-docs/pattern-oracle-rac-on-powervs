@@ -29,10 +29,10 @@ The following are the typical scenarios:
 
    Connecting Power Systems Virtual Server to an on-premises network by using Direct Link (2.0) Connect. A typical use case for this topology is that the user requires access to the Power virtual servers from their on-premises networks.
 
-   ![On-premises connectivity](11033ba3886cf0f454b84f3ad26585a7.png){: caption="Figure 1. On-premises connectivity" caption-side="bottom"}
+   ![On-premises connectivity](11033ba3886cf0f454b84f3ad26585a7.png){: caption="On-premises connectivity" caption-side="bottom"}
 
 2. PowerVS connecting to VPC in IBM Cloud
 
    Connecting Power Systems Virtual Server to the IBM Cloud VPC infrastructure and cloud native services environment by using Direct Link (2.0) Connect. A typical use case for this topology is to use IBM Cloud VPC x86 resources as well as cloud native services like Cloud Object Storage from PowerVS.
 
-   ![Connectivity to VPC](5ca6e8ac1e6159d9494be351082a35b4.png){: caption="Figure 2. Connectivity to VPC" caption-side="bottom"}
+   ![Connectivity to VPC](5ca6e8ac1e6159d9494be351082a35b4.png){: caption="Connectivity to VPC" caption-side="bottom"}

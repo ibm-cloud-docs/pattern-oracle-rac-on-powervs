@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "title": "Oracle RAC on Power Virtual Server",
+  "introduction":"This is a landing page for the reference architecture describing how to host SAP on IBM Power Virtual Server environment.",
+  "section_topics": {
+  "links": [
+    {
+      "title": "Overview",
+      "href": "/docs/pattern-oracle-rac-on-powervs?topic=pattern-oracle-rac-on-powervs-overview"
+    },
+    {
+      "title": "Reference Architecture",
+      "href": "/docs/pattern-oracle-rac-on-powervs?topic=pattern-oracle-rac-on-powervs-oracle-rac-on-powervs"
+    },
+    {
+      "title": "Planning",
+      "href": "/docs/pattern-oracle-rac-on-powervs?topic=pattern-oracle-rac-on-powervs-compute-design"
+    }
+  ]
+},
+  "section_architectures": [
+    {
+      "title": "Oracle RAC on Power Virtual Server",
+      "href": "/docs/pattern-oracle-rac-on-powervs?topic=pattern-oracle-rac-on-powervs-compute-decisions",
+      "deployable": false
+    }
+  ]
+ }
