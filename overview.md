@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-15"
+  years: 2025
+lastupdated: "2025-08-26"
 
 subcollection: pattern-oracle-rac-on-powervs
 
@@ -21,7 +21,7 @@ The IBM Power Systems Virtual Server environment consists of SAN Storage, Power 
 
 PowerVS is a fully contained, stand-alone offering and has its own management control plane. PowerVS is colocated with IBM Cloud Infrastructure with separate networks and direct-attached storage. The environment is in its own pod and the internal networks are fenced but offer connectivity options to IBM Cloud infrastructure or on-premises environments to meet customer requirements. PowerVS provides a simple and easy interface for creating shared storage and network resources that are required for Oracle RAC implementation. The implementation requires shared storage between the cluster nodes, and public and private networks for RAC communication between the nodes. These PowerVS connectivity options enable instances to easily integrate with IBM Cloud Services. For example, the Identity and Access Management (IAM) service is used to securely authenticate users, control access to PowerVS resources with resource groups, and allow access to specific resources for a set of users with access groups. Or the Cloud Object Storage service is used to store backups.
 
-The objective of this pattern is to provide a solution design for an [Oracle RAC](https://www.oracle.com/database/real-application-clusters/){: exteernal} Database deployment on [IBM Power Systems Virtual Server (PowerVS)](https://www.ibm.com/products/power-virtual-server){: external} that meets high availability requirements for enterprise workloads. This pattern is intended to:
+The objective of this pattern is to provide a solution design for an [Oracle RAC](https://www.oracle.com/database/real-application-clusters/){: external} Database deployment on [IBM Power Systems Virtual Server (PowerVS)](https://www.ibm.com/products/power-virtual-server){: external} that meets high availability requirements for enterprise workloads. This pattern is intended to:
 
 - Accelerate and simplify the solution design by providing a standard IBM PowerVS deployment architecture reference by following the IBM Architecture Framework
 
