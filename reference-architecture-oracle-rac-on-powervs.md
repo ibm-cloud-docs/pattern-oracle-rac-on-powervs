@@ -41,8 +41,7 @@ The architecture diagram in Figure 1 illustrates a reference solution that has P
 A Single Zone Region:
 
 - VPC environment
-   - Edge VPC: This landing zone hosts key security components that are needed in VPC and cloud management
-   - Management VPC: This landing zone hosts all the management stack that is needed to manage the VPC and PowerVS environment
+   - Edge and Management VPC: This landing zone hosts key security components that are needed in VPC and cloud management and the management stack that is needed to manage the VPC and PowerVS environment
 
 - PowerVS Environment
    - Workload PowerVS cluster: Oracle RAC
