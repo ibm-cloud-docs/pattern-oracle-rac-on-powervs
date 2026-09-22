@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-15"
+  years: 2023, 2025
+lastupdated: "2026-09-22"
 
 subcollection: pattern-oracle-rac-on-powervs
 
@@ -34,15 +34,14 @@ The reference architecture for Oracle RAC, High Availability, in a single zone r
 ## Architecture diagram
 {: #architecture-diagram}
 
-![Solution Architecture](oracle-rac-on-powervs.png){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
+![Solution Architecture](oracle-rac-on-powervs.svg){: caption="Figure 1. Solution Architecture" caption-side="bottom"}
 
 The architecture diagram in Figure 1 illustrates a reference solution that has Power Virtual server environment and IBM Cloud VPC for an Oracle RAC deployment.
 
 A Single Zone Region:
 
 - VPC environment
-   - Edge VPC: This landing zone hosts key security components that are needed in VPC and cloud management
-   - Management VPC: This landing zone hosts all the management stack that is needed to manage the VPC and PowerVS environment
+   - Edge and Management VPC: This landing zone hosts key security components that are needed in VPC and cloud management and the management stack that is needed to manage the VPC and PowerVS environment
 
 - PowerVS Environment
    - Workload PowerVS cluster: Oracle RAC
@@ -51,9 +50,9 @@ The solution component details include:
 
 1. PowerVS systems are created in a PowerVS workspace. This workspace acts as a container for all PowerVS instances at a specific geographic region
 
-2. For each Power Systems Virtual Server instance, a storage tier (Tier 1 or Tier 3) is selected. The storage tiers in Power Systems Virtual Server are based on I/O operations per second (IOPS)
+2. For each Power Systems Virtual Server instance, a storage tier is selected. Available tiers are Tier 0 (25 IOPS/GB), Tier 1 (10 IOPS/GB), Tier 3 (3 IOPS/GB), and Fixed IOPS (5,000 IOPS for volumes ≤ 200 GB). Tier 0 is recommended for the highest-performance Oracle RAC production workloads.
 
-3. The client network connectivity is accomplished from on-premises to IBM Cloud and PowerVS is setup through Direct Link (2.0) and Transit Gateway
+3. The client network connectivity from on-premises to IBM Cloud is accomplished through Direct Link (2.0) and Transit Gateway. Connectivity from PowerVS to IBM Cloud VPC and cloud services uses the [Power Edge Router (PER)](/docs/power-iaas?topic=power-iaas-per) with Transit Gateway, which is the current standard for PowerVS workspaces
 
 4. An edge VPC is deployed which contains routing and security functions. It contains Bastion host, Firewalls providing advanced security functions
 
@@ -63,7 +62,7 @@ The solution component details include:
 
 7. Virtual Private endpoints are used to provide connectivity to cloud native services from each VPC
 
-8. Direct Link (2.0) and Transit Gateway are used to connect PowerVS environment the core workload hosting the Oracle RAC application and databases to a management VPC where various management tools can be deployed
+8. Power Edge Router (PER) and Transit Gateway connect the PowerVS environment hosting the Oracle RAC application and databases to the management VPC where various management tools are deployed
 
 9. Get visibility into the performance and health of your resources by configuring the [monitoring](/docs/power-iaas?topic=power-iaas-monitor-sysdig#sysdig-view-ui) and [Cloud Logs](/docs/cloud-logs), observability components
 
@@ -115,26 +114,26 @@ The following represents a baseline set of requirements that are applicable to m
 ## Components
 {: #components}
 
-| Aspect       | Component                                                                                                                    | How the component is used                                                                                    |
-|-------------------|--------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------|
-| Compute       | [PowerVS](/docs/power-iaas?topic=power-iaas-getting-started)                                                          | Web, App, and database servers                                                                                    |
-| Storage       | [PowerVS Storage](/docs/openshift?topic=openshift-vpc-block)                                                          | Database servers shared storage for RAC                                                                           |
-|                   | [VPC Block Storage](/docs/vpc?topic=vpc-block-storage-about&interface=ui#block-storage-overview)                      | Web app storage if needed                                                                                         |
-|                   | [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui)                                           | Web app shared storage if needed                                                                                  |
-|                   | [Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage)    | Web app static content, backups, logs for short and long-term retention (application, operational, and audit logs) |
-| Networking   | [VPC Virtual Private Network (VPN)](/docs/iaas-vpn?topic=iaas-vpn-getting-started)                                    | Remote access to manage resources in a private network                                                              |
-|                   | [Virtual Private Gateway & Virtual Private Endpoint (VPE)](/docs/vpc?topic=vpc-about-vpe)                             | For private network access to Cloud Services, for example, Key Protect, Cloud Object Storage, and so on.                                        |
-|                   | [VPC Load Balancers](/docs/vpc?topic=vpc-load-balancers)                                                              | Application Load Balancing for web servers, app servers, and database servers                                     |
-|                   | [Public Gateway](/docs/vpc?topic=vpc-about-public-gateways&interface=ui)                                              | For web server access to the internet                                                                             |
-|                   | [Cloud Internet Services (CIS)](/docs/cis?topic=cis-getting-started)                                                  | Public Load balancing of web server traffic across zones in the region                                           |
-|                   | [DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services)                                                      | The domain Name System (DNS) to associate human-friendly domain names with IP addresses                               |
-| Security      | [IAM](/docs/account?topic=account-cloudaccess)                                                                        | IBM Cloud Identity & Access Management                                                                            |
-|                   | [Bastion Host on VPC VSI](/docs/solution-tutorials?topic=solution-tutorials-vpc-secure-management-bastion-server) | Remote access with Privileged Access Management                                                                   |
-|                   | [Virtual Private Clouds (VPCs), Subnets, Security Groups, ACLs](/docs/vpc?topic=vpc-getting-started)                  | Core Network Protection for web, app, and database tiers                                                          |
-|                   | [Cloud Internet Services (CIS)](/docs/cis?topic=cis-getting-started)                                                  | DDoS protection and Web App Firewall                                                                              |
-|                   | [Key Protect](/docs/key-protect) or [HPCS](/docs/hs-crypto?topic=hs-crypto-get-started)          | Hardware security module (HSM) and Key Management Service                                                         |
-|                   | [Secrets Manager](/docs/secrets-manager)                                                                              | Certificate and Secrets Management                                                                                |
-| **Resiliency**    | [PowerVS](/docs/power-iaas?topic=power-iaas-getting-started)                                                          | Multiple PowerVS on separate physical servers with VM and Storage anti-affinity policy                            |
-| Service management | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitor)                                               | Apps and operational monitoring                                                                                   |
-|                   | [IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-about-cl)                                             | Apps and operational logs, Audit Logs                                                                                         |
+| Aspect | Component | How the component is used |
+| - | - |
+| Compute | [PowerVS](/docs/power-iaas?topic=power-iaas-getting-started) | Web, App, and database servers |
+| Storage | [PowerVS Storage](/docs/openshift?topic=openshift-vpc-block) | Database servers shared storage for RAC |
+| | [VPC Block Storage](/docs/vpc?topic=vpc-block-storage-about&interface=ui#block-storage-overview) | Web app storage if needed |
+| | [VPC File Storage](/docs/vpc?topic=vpc-file-storage-vpc-about&interface=ui) | Web app shared storage if needed |
+| | [Cloud Object Storage](/docs/cloud-object-storage?topic=cloud-object-storage-getting-started-cloud-object-storage) | Web app static content, backups, logs for short and long-term retention (application, operational, and audit logs) |
+| Networking | [VPC Virtual Private Network (VPN)](/docs/iaas-vpn?topic=iaas-vpn-getting-started) | Remote access to manage resources in a private network |
+| | [Virtual Private Gateway & Virtual Private Endpoint (VPE)](/docs/vpc?topic=vpc-about-vpe) | For private network access to Cloud Services, for example, Key Protect, Cloud Object Storage, and so on. |
+| | [VPC Load Balancers](/docs/vpc?topic=vpc-load-balancers) | Application Load Balancing for web servers, app servers, and database servers |
+| | [Public Gateway](/docs/vpc?topic=vpc-about-public-gateways&interface=ui) | For web server access to the internet |
+| | [Cloud Internet Services (CIS)](/docs/cis?topic=cis-getting-started) | Public Load balancing of web server traffic across zones in the region |
+| | [DNS Services](/docs/dns-svcs?topic=dns-svcs-about-dns-services) | The domain Name System (DNS) to associate human-friendly domain names with IP addresses |
+| Security  | [IAM](/docs/account?topic=account-cloudaccess) | IBM Cloud Identity & Access Management |
+| | [Bastion Host on VPC VSI](/docs/solution-tutorials?topic=solution-tutorials-vpc-secure-management-bastion-server) | Remote access with Privileged Access Management |
+| | [Virtual Private Clouds (VPCs), Subnets, Security Groups, ACLs](/docs/vpc?topic=vpc-getting-started) | Core Network Protection for web, app, and database tiers |
+| | [Cloud Internet Services (CIS)](/docs/cis?topic=cis-getting-started) | DDoS protection and Web App Firewall |
+| | [Key Protect](/docs/key-protect) or [HPCS](/docs/hs-crypto?topic=hs-crypto-get-started) | Hardware security module (HSM) and Key Management Service |
+| | [Secrets Manager](/docs/secrets-manager) | Certificate and Secrets Management |
+| **Resiliency** | [PowerVS](/docs/power-iaas?topic=power-iaas-getting-started) | Multiple PowerVS on separate physical servers with VM and Storage anti-affinity policy |
+| Service management | [IBM Cloud Monitoring](/docs/monitoring?topic=monitoring-about-monitor) | Apps and operational monitoring |
+| | [IBM Cloud Logs](/docs/cloud-logs?topic=cloud-logs-about-cl) | Apps and operational logs, Audit Logs |
 {: caption="Table 2. Components" caption-side="bottom"}
