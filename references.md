@@ -1,8 +1,8 @@
 ---
 
 copyright:
-  years: 2023
-lastupdated: "2023-12-15"
+  years: 2023, 2025
+lastupdated: "2026-09-22"
 
 subcollection: pattern-oracle-rac-on-powervs
 
@@ -25,7 +25,7 @@ keywords:
 
 1. [PowerVS connecting to IBM VPC Public Cloud](https://www.ibm.com/blog/connecting-ibm-vpc-to-ibm-power-virtual-servers-and-ibm-cloud-object-storage/){: external}
 
-1. [PowerVS Launch Page](https://test.cloud.ibm.com/power/overview){: external}
+1. [PowerVS Launch Page](https://cloud.ibm.com/power/overview){: external}
 
 1. [PowerVS Documentation](/docs/power-iaas?topic=power-iaas-getting-started)
 
