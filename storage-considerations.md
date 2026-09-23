@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2026-09-22"
+lastupdated: "2026-09-23"
 
 subcollection: pattern-oracle-rac-on-powervs
 
@@ -28,7 +28,7 @@ The storage tiers in Power Systems Virtual Server are based on I/O operations pe
 | **Fixed IOPS** | 5,000 IOPS regardless of size | 5,000 IOPS | Limited to volumes of 200 GB or less; break-even with Tier 0 at 200 GB |
 {: caption="Power Virtual Server storage tiers" caption-side="bottom"}
 
-Tier 0 is recommended for Oracle RAC production workloads with the highest IOPS requirements. Tier 1 is appropriate for most production workloads. Tier 3 storage can be selected for lower I/O tier workloads, such as dev or test environments. When you choose a storage tier, consider not just the average I/O load but more importantly the peak IOPS of your storage workload.
+Tier 0 is recommended for Oracle RAC production workloads with the highest IOPS requirements. Tier 1 is appropriate for most production workloads as well as storing AIX and Oracle binaries for production use. Tier 3 storage can be selected for lower I/O tier workloads, such as dev or test environments. Fixed IOPS is typcially used in production to support Oracle Redo. When you choose a storage tier, consider not just the average I/O load but more importantly the peak IOPS of your storage workload.
 
 Another key area is the Volume affinity and anti-affinity policy. It allows users to control the placement of a new volume based on an existing PVM instance (VM) or volume. When the user sets an affinity policy for a new storage volume, the volume is created within the same storage provider as an existing PVM instance or volume. With an anti-affinity policy, the new volume is created in a different storage provider other than the storage provider that the existing PVM instance or volume is located in. For Oracle RAC, select the anti-affinity policy to provision storage volumes across different storage pools within a data center
 
