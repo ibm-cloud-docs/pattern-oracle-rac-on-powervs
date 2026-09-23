@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2026-09-22"
+lastupdated: "2026-09-23"
 
 subcollection: pattern-oracle-rac-on-powervs
 
@@ -70,7 +70,7 @@ There is also an option to select the appropriate policy between Same Server and
 
 You can also select the appropriate pinning option (Hard/Soft/None) from the Virtual server pinning list. Select the Hard pin option to restrict the movement of an LPAR to a different host. It is recommended to select Hard pin for LPARs running Oracle databases to control the use of licensed cores and to prevent Live Partition Mobility (LPM) activity.
 
-There is an option to select between dedicated, capped shared, or uncapped shared processor mode for virtual CPUs (vCPUs). The recommendation is to use shared uncapped for LPAR configuration and shared capped for the shared processor pool. Clients use dedicated cores to mitigate noisy neighbors in the PowerVS multi-tenant environment for production Oracle RAC workloads.
+There is an option to select between dedicated, capped shared, or uncapped shared processor mode for virtual CPUs (vCPUs) deployed into a shared process pool (SPP). The recommendation is to use shared uncapped for LPAR configuration and shared capped for the shared processor pool. Clients use dedicated cores to mitigate noisy neighbors in the PowerVS multi-tenant environment for production Oracle RAC workloads.
 
 Select the processor mode and number of cores based on your Oracle licensing terms.
 
