@@ -15,6 +15,10 @@
       {
         "title": "Planning",
         "href": "/docs/pattern-oracle-rac-on-powervs?topic=pattern-oracle-rac-on-powervs-compute-design"
+      },
+      {
+        "title": "Deploying",
+        "href": "/docs/pattern-oracle-rac-on-powervs?topic=pattern-oracle-rac-on-powervs-rac-deploy"
       }
     ]
   },
