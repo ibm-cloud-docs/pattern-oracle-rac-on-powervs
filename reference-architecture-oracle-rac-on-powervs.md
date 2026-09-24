@@ -141,4 +141,4 @@ The following represents a baseline set of requirements that are applicable to m
 ## Deployment Accelerator
 {: #da}
 
-A quick start for deployment of RAC on IBM PowerVS is to use the Deployable architecture, [Oracle on IBM Power Virtual Server](/catalog/7a4d68b4-cf8b-40cd-a3d1-f49aff526eb3/architecture/deploy-arch-ibm-powervs-oracle-97af9ca3-851c-4c09-9afb-4cdcebd4f4a2-global?catalog_query=aHR0cHM6Ly9jbG91ZC5pYm0uY29tL2NhdGFsb2c%2Fc2VhcmNoPVJBQyNzZWFyY2hfcmVzdWx0cw%3D%3D), and choose the Deploy Oracle RAC Database on IBM PowerVS variation.
+A quick start for deployment of RAC on IBM PowerVS is to use the Deployable architecture as described in this document's [deployment guide](/docs/pattern-oracle-rac-on-powervs?topic=pattern-oracle-rac-on-powervs-rac-deploy).
