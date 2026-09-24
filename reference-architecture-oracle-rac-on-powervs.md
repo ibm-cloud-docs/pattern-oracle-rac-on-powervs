@@ -2,7 +2,7 @@
 
 copyright:
   years: 2023, 2025
-lastupdated: "2026-09-23"
+lastupdated: "2026-09-24"
 
 subcollection: pattern-oracle-rac-on-powervs
 
@@ -115,7 +115,7 @@ The following represents a baseline set of requirements that are applicable to m
 {: #components}
 
 | Aspect | Component | How the component is used |
-| - | - |
+| - | - | - |
 | Compute | [PowerVS](/docs/power-iaas?topic=power-iaas-getting-started) | Web, App, and database servers |
 | Storage | [PowerVS Storage](/docs/openshift?topic=openshift-vpc-block) | Database servers shared storage for RAC |
 | | [VPC Block Storage](/docs/vpc?topic=vpc-block-storage-about&interface=ui#block-storage-overview) | Web app storage if needed |

@@ -48,6 +48,10 @@ toc:
           - topic: service-management-decisions.md
             navtitle: Service Management
   - navgroup:
+      id: deploy
+      topics:
+      - deploy.md
+  - navgroup:
       id: reference
       topics:
       - references.md
